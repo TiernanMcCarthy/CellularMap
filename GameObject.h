@@ -1,0 +1,136 @@
+#pragma once
+#include <SFML/System.hpp>
+#include <vector>
+#include "RenderObject.h"
+
+struct Transform
+{
+public:
+	sf::Vector2f localPosition;
+	sf::Vector2f localRotation;
+	sf::Vector2f localScale;
+
+	Transform* parent = nullptr;
+
+	std::vector<Transform*> children;
+
+	Transform()
+	{
+		localPosition = sf::Vector2f(0, 0);
+		localRotation = sf::Vector2f(0, 0);
+		localScale = sf::Vector2f(1, 1);
+		children = std::vector<Transform*>();
+	}
+
+	void SetLocalPosition(sf::Vector2f position)
+	{
+		localPosition = position;
+	}
+
+	sf::Vector2f GetLocalPosition(sf::Vector2f position)
+	{
+		return localPosition;
+	}
+
+	/// <summary>
+	/// Set World Position in respect to any parent
+	/// </summary>
+	/// <param name="worldPos"></param>
+	void SetPosition(sf::Vector2f worldPos)
+	{
+		if (parent != nullptr)
+		{
+			localPosition = worldPos - parent->GetPosition();
+		}
+		else
+		{
+			localPosition = worldPos;
+		}
+	}
+
+	/// <summary>
+	/// Get world position
+	/// </summary>
+	/// <returns></returns>
+	sf::Vector2f GetPosition()
+	{
+		if (parent != nullptr)
+		{
+			return parent->GetPosition() + localPosition;
+		}
+		else
+		{
+			return localPosition;
+		}
+	}
+
+	void AddChild(Transform* child)
+	{
+		if (child != nullptr && child != this)
+		{
+			children.push_back(child);
+			child->parent = this;
+		}
+	}
+
+	void RemoveChild(Transform* child)
+	{
+		if (child == nullptr)
+		{
+			return;
+		}
+		children.erase(std::remove(children.begin(), children.end(), child),children.end());
+
+		if (child->parent == this)
+		{
+			child->parent = nullptr;
+		}
+	}
+
+	void SetParent(Transform* newParent)
+	{
+		if (parent != nullptr)
+		{
+			parent->RemoveChild(this);
+		}
+		else if(newParent!=nullptr)
+		{
+			newParent->AddChild(this);
+		}
+	}
+
+
+};
+
+/// <summary>
+/// GameObjects exist to manage transforms, they can be spawned and destroyed;
+/// </summary>
+/// 
+class GameObject
+{
+
+public:
+
+	std::string name;
+
+	Transform transform;
+
+	RenderObject visualElements;
+	
+
+	GameObject(std::string objectname="GameObject");
+
+	~GameObject();
+
+	virtual void Destroy();
+
+	virtual void Update(float deltaTime);
+
+	virtual void UpdateTransform();
+
+	virtual void Start();
+
+private:
+
+
+};
