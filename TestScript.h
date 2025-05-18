@@ -1,13 +1,23 @@
 #pragma once  
-#include "GameObject.h"  
+#include "Behaviour.h"
+#include <iostream>
 
-class TestScript : public GameObject 
-{  
+class TestScript : public Behaviour {
 public:
+    void Start() override;
+};
 
-   virtual void Update(float deltaTime) override;
+class EpicTest : public TestScript
+{
+public:
+    void Start() override
+    {
+        //TestScript::Start();
+        std::cout << "IM SO CLEVER" << std::endl;
+    }
 
-   virtual void Start() override;
-
-   TestScript(std::string objectName = "GameObject");
+    std::string epicString()
+    {
+        return "We Have a Component System for now";
+    }
 };

@@ -6,12 +6,6 @@
 #include "TestScript.h"
 Engine* Engine::GEngine = nullptr;
 
-Engine::T* CreateGameObject(std::string name) {
-    T* obj = new T(name);
-    Engine::GEngine->AddGameObject(obj);
-    return obj;
-}
-
 Engine::Engine(bool startEngine)
 {
     Engine::GEngine = this;
@@ -43,7 +37,13 @@ void Engine::EngineLoop()
     //Clock for calculating Delta Time
     sf::Clock clock;
 
-    TestScript test = TestScript("EpicGame");
+    GameObject* temp = new GameObject("My epic Object");
+
+    temp->AddBehaviour<TestScript>();
+
+    temp->AddBehaviour<EpicTest>();
+
+    std::cout<<temp->GetBehaviour<EpicTest>()->epicString()<<std::endl;
 
     //Main Game Loop
     while (gameWindow.isOpen())
@@ -77,7 +77,7 @@ void Engine::EngineLoop()
 
         for (int i = 0; i < gameObjects.size(); i++)
         {
-            gameObjects[i]->visualElements.Draw(*gameObjects[i]);
+            gameObjects[i]->visualElements.Draw(gameObjects[i]);
         }
         
         gameWindow.display();

@@ -2,6 +2,12 @@
 #include <SFML/System.hpp>
 #include <vector>
 #include "RenderObject.h"
+#include <unordered_map>
+#include <memory>
+#include <typeinfo>
+#include <typeindex>
+
+class Behaviour;
 
 struct Transform
 {
@@ -11,8 +17,6 @@ public:
 	sf::Vector2f localScale;
 
 	Transform* parent = nullptr;
-
-	std::vector<Transform*> children;
 
 	Transform()
 	{
@@ -99,7 +103,8 @@ public:
 		}
 	}
 
-
+private:
+	std::vector<Transform*> children;
 };
 
 /// <summary>
@@ -116,7 +121,6 @@ public:
 	Transform transform;
 
 	RenderObject visualElements;
-	
 
 	GameObject(std::string objectname="GameObject");
 
@@ -130,7 +134,31 @@ public:
 
 	virtual void Start();
 
+	template<typename T, typename... Args>
+	T* AddBehaviour(Args&&... args) {
+		static_assert(std::is_base_of<Behaviour, T>::value, "T must inherit Behaviour");
+
+		T* behaviour = new T(std::forward<Args>(args)...);
+		behaviour->SetGameObject(this);
+		behaviours.push_back(behaviour);
+		behaviour->Start();
+
+		return behaviour;
+	}
+
+	template<typename T>
+	T* GetBehaviour() {
+		for (auto b : behaviours) {
+			if (typeid(*b) == typeid(T)) {
+				return static_cast<T*>(b);
+			}
+		}
+		return nullptr;
+	}
+
 private:
 
+	std::vector<Behaviour*> behaviours;
 
+	void SetBehaviourParent(Behaviour* b);
 };

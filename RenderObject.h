@@ -6,7 +6,7 @@ class RenderObject
 {
 public:
 
-	virtual void Draw(GameObject parent);
+	virtual void Draw(GameObject *parent);
 
 
 };

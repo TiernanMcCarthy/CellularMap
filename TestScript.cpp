@@ -1,21 +1,14 @@
 #include "TestScript.h"
 #include <iostream>
-
-
-void TestScript::Update(float deltaTime)
-{
-
-}
-
+#include "GameObject.h"
 void TestScript::Start()
 {
-	name = "FEWhsafhfsahfas";
-	std::cout << "FHSAFHhfsahfas" << std::endl;
+    std::cout << "TestScript Start called on GameObject: ";
+    if (gameObject) {
+        std::cout << gameObject->name << std::endl;
+    }
+    else {
+        std::cout << "(no gameObject assigned!)" << std::endl;
+    }
 }
 
-TestScript::TestScript(std::string objectName)
-{
-	
-	//name = objectName;
-	
-}
