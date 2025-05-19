@@ -40,11 +40,12 @@ void Engine::EngineLoop()
     GameObject* temp = new GameObject("My epic Object");
 
     temp->AddBehaviour<TestScript>();
+    
+    TestScript epicType = *temp->GetBehaviour<TestScript>();
 
-    temp->AddBehaviour<EpicTest>();
+    temp->RemoveBehaviour(&epicType);
 
-    std::cout<<temp->GetBehaviour<EpicTest>()->epicString()<<std::endl;
-
+    gameWindow.setFramerateLimit(60);
     //Main Game Loop
     while (gameWindow.isOpen())
     {
@@ -92,6 +93,11 @@ void Engine::AddGameObject(GameObject* newObject)
 {
     gameObjects.push_back(newObject);
     gameObjects[gameObjects.size() - 1]->Start();
+}
+
+void Engine::Destroy()
+{
+
 }
 
 float Engine::DeltaTime()

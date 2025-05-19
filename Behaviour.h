@@ -10,8 +10,13 @@ public:
 
     virtual ~Behaviour() = default;
 
-    // Called after construction and after being added to a GameObject
+    // Called after being added to a gameobject
     virtual void Start();
+
+    //Main Update of a behaviour, once per frame
+    virtual void Update(float deltaTime);
+
+
 
     // Set the parent GameObject pointer
     void SetGameObject(GameObject* parent) {

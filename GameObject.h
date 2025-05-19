@@ -126,8 +126,6 @@ public:
 
 	~GameObject();
 
-	virtual void Destroy();
-
 	virtual void Update(float deltaTime);
 
 	virtual void UpdateTransform();
@@ -156,9 +154,12 @@ public:
 		return nullptr;
 	}
 
+	void RemoveBehaviour(Behaviour* t);
+
 private:
 
 	std::vector<Behaviour*> behaviours;
 
 	void SetBehaviourParent(Behaviour* b);
 };
+

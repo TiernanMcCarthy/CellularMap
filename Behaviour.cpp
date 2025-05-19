@@ -6,4 +6,8 @@ void Behaviour::Start()
 {
 }
 
+void Behaviour::Update(float deltaTime)
+{
+}
+
 

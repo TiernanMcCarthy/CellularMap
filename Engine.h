@@ -12,6 +12,11 @@ public:
 
 	Engine(bool startEngine = false);
 
+	/// <summary>
+	/// Destroys a GameObject and removes it from the gameobject List
+	/// </summary>
+	void Destroy();
+
 	void Start();
 
 	void AddGameObject(GameObject* newObject);

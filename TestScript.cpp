@@ -12,3 +12,8 @@ void TestScript::Start()
     }
 }
 
+void TestScript::Update(float deltaTime)
+{
+    std::cout << "This is an epic game update loop \n" << std::endl;
+}
+
