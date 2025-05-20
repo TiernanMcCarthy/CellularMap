@@ -2,7 +2,7 @@
 #include "SFML/Window.hpp"
 #include "vector";
 #include "GameObject.h"
-
+#include "Object.h"
 
 class Engine
 {
@@ -15,7 +15,7 @@ public:
 	/// <summary>
 	/// Destroys a GameObject and removes it from the gameobject List
 	/// </summary>
-	void Destroy();
+	void Destroy(Object* target);
 
 	void Start();
 
@@ -27,13 +27,22 @@ public:
 	template<typename T>
 	T* CreateGameObject(std::string name);
 
+
+	void RemoveObjectFromList(GameObject* g);
+
 private:
 
+	//holds all gameobjects in the Engine Scene
 	std::vector<GameObject*> gameObjects;
+
+	//holds all objects that are being destroyed this frame, we need to clear them from the appropriate areas
+	std::vector<Object*> destructionStack;
 
 	float deltaTime;
 
 	void EngineLoop();
+
+	void ClearDestructionStack();
 
 	bool isRunning = false;
 

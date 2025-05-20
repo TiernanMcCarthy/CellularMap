@@ -1,21 +1,22 @@
 #pragma once
-
+#include "Object.h"
 class GameObject;
 /// <summary>
 /// Version of a Component Or Adjacent to Unity Monobehaviour
 /// </summary>
-class Behaviour {
+class Behaviour :public Object{
 public:
     GameObject* gameObject = nullptr;
 
     virtual ~Behaviour() = default;
+
+    void OnDestroy() override;
 
     // Called after being added to a gameobject
     virtual void Start();
 
     //Main Update of a behaviour, once per frame
     virtual void Update(float deltaTime);
-
 
 
     // Set the parent GameObject pointer

@@ -1,4 +1,73 @@
-﻿Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
+﻿  Behaviour.cpp
+C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'Behaviour.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+  Engine.cpp
+C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'Engine.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Engine.cpp')
+  
+D:\Repos\CellularMap\Engine.cpp(67,27): warning C4018: '<': signed/unsigned mismatch
+D:\Repos\CellularMap\Engine.cpp(79,27): warning C4018: '<': signed/unsigned mismatch
+  FontManager.cpp
+D:\Repos\CellularMap\FontManager.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'FontManager.cpp')
+  
+  GameObject.cpp
+C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'GameObject.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'GameObject.cpp')
+  
+D:\Repos\CellularMap\GameObject.cpp(35,20): warning C4018: '<': signed/unsigned mismatch
+D:\Repos\CellularMap\GameObject.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'main.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'main.cpp')
+  
+D:\Repos\CellularMap\FontManager.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'main.cpp')
+  
+  RenderObject.cpp
+C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'RenderObject.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+  TestScript.cpp
+C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'TestScript.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+  Generating Code...
+Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(class sf::Vector2<unsigned int>,unsigned int)" (__imp_??0VideoMode@sf@@QAE@V?$Vector2@I@1@I@Z) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::WindowBase::isOpen(void)const " (__imp_?isOpen@WindowBase@sf@@QBE_NXZ) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
@@ -6,6 +75,7 @@ Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) pu
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class sf::Time __thiscall sf::Clock::restart(void)" (__imp_?restart@Clock@sf@@QAE?AVTime@2@XZ) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Clock::Clock(void)" (__imp_??0Clock@sf@@QAE@XZ) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual void __thiscall sf::Window::close(void)" (__imp_?close@Window@sf@@UAEXXZ) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
+Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::setFramerateLimit(unsigned int)" (__imp_?setFramerateLimit@Window@sf@@QAEXI@Z) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::display(void)" (__imp_?display@Window@sf@@QAEXXZ) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::clear(class sf::Color)" (__imp_?clear@RenderTarget@sf@@QAEXVColor@2@@Z) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
 Engine.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,enum sf::State,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IW4State@1@ABUContextSettings@1@@Z) referenced in function "private: void __thiscall Engine::EngineLoop(void)" (?EngineLoop@Engine@@AAEXXZ)
@@ -16,4 +86,4 @@ main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) publ
 C:\SFML\SFML-3.0.0\lib\sfml-graphics-d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
 C:\SFML\SFML-3.0.0\lib\sfml-window-d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
 C:\SFML\SFML-3.0.0\lib\sfml-system-d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
-D:\UnityProjects\GallowsCorner\CellularMap\Debug\CellularMap.exe : fatal error LNK1120: 15 unresolved externals
+D:\Repos\CellularMap\Debug\CellularMap.exe : fatal error LNK1120: 16 unresolved externals

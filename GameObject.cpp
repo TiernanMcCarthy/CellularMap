@@ -14,7 +14,6 @@ GameObject::GameObject(std::string objectname)
 
 GameObject::~GameObject()
 {
-	std::cout << "WHYYYYY \n" << std::endl;
 	
 	for (auto b : behaviours)
 	{
@@ -24,6 +23,11 @@ GameObject::~GameObject()
 		}
 	}
 	behaviours.clear();
+
+}
+void GameObject::OnDestroy()
+{
+	Engine::GEngine->RemoveObjectFromList(this);
 }
 
 
@@ -47,17 +51,12 @@ void GameObject::Start()
 
 }
 
-void GameObject::RemoveBehaviour(Behaviour* t)
+
+
+
+void GameObject::RemoveBehaviour(Behaviour* b)
 {
-	auto behaviour = *t;
-	for (int i = 0; i < behaviours.size(); i++)
-	{
-		auto compare = *behaviours[i];
-		if (&behaviour == &compare)
-		{
-			int bob = 5;
-		}
-	}
+	behaviours.erase(std::remove(behaviours.begin(), behaviours.end(), b), behaviours.end());
 }
 
 void GameObject::SetBehaviourParent(Behaviour* b)

@@ -41,15 +41,15 @@ void Engine::EngineLoop()
 
     temp->AddBehaviour<TestScript>();
     
-    TestScript epicType = *temp->GetBehaviour<TestScript>();
-
-    temp->RemoveBehaviour(&epicType);
+    TestScript* epicType = temp->GetBehaviour<TestScript>();
 
     gameWindow.setFramerateLimit(60);
+
+    Destroy(epicType);
+
     //Main Game Loop
     while (gameWindow.isOpen())
     {
-
         //Handle Events
         while (const std::optional event = gameWindow.pollEvent())
         {
@@ -83,9 +83,31 @@ void Engine::EngineLoop()
         
         gameWindow.display();
 
+        //Clear Destruction Stack for Deleted Objects
+        ClearDestructionStack();
     }
 
     std::cout << "Closing Engine \n" << std::endl;
+}
+
+void Engine::ClearDestructionStack()
+{
+    Object* targetPointer;
+    for (int i = 0; i < destructionStack.size(); i++)
+    {
+        targetPointer = destructionStack[i];
+        targetPointer->OnDestroy();
+        delete targetPointer;
+    }
+    destructionStack.clear();
+}
+
+void Engine::RemoveObjectFromList(GameObject* g)
+{
+    if (g)
+    {
+        gameObjects.erase(std::remove(gameObjects.begin(), gameObjects.end(), g), gameObjects.end());
+    }
 }
 
 
@@ -95,9 +117,13 @@ void Engine::AddGameObject(GameObject* newObject)
     gameObjects[gameObjects.size() - 1]->Start();
 }
 
-void Engine::Destroy()
+void Engine::Destroy(Object *target)
 {
-
+    //Destroy target if it's not a null pointer
+    if (target)
+    {
+        destructionStack.push_back(target);
+    }
 }
 
 float Engine::DeltaTime()

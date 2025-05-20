@@ -2,11 +2,12 @@
 #include <SFML/System.hpp>
 #include <vector>
 #include "RenderObject.h"
+#include "Object.h"
 #include <unordered_map>
 #include <memory>
 #include <typeinfo>
 #include <typeindex>
-
+#include "Engine.h"
 class Behaviour;
 
 struct Transform
@@ -111,7 +112,7 @@ private:
 /// GameObjects exist to manage transforms, they can be spawned and destroyed;
 /// </summary>
 /// 
-class GameObject
+class GameObject : public Object
 {
 
 public:
@@ -131,6 +132,8 @@ public:
 	virtual void UpdateTransform();
 
 	virtual void Start();
+
+	void OnDestroy() override;
 
 	template<typename T, typename... Args>
 	T* AddBehaviour(Args&&... args) {
@@ -154,12 +157,13 @@ public:
 		return nullptr;
 	}
 
-	void RemoveBehaviour(Behaviour* t);
-
+	void RemoveBehaviour(Behaviour* b);
 private:
 
 	std::vector<Behaviour*> behaviours;
 
 	void SetBehaviourParent(Behaviour* b);
+
+	
 };
 
