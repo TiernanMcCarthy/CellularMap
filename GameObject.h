@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML/System.hpp>
 #include <vector>
-#include "RenderObject.h"
 #include "Object.h"
 #include <unordered_map>
 #include <memory>
@@ -117,17 +116,19 @@ class GameObject : public Object
 
 public:
 
+	bool isActive = true;
+
 	std::string name;
 
 	Transform transform;
-
-	RenderObject visualElements;
 
 	GameObject(std::string objectname="GameObject");
 
 	~GameObject();
 
 	virtual void Update(float deltaTime);
+
+	virtual void Render();
 
 	virtual void UpdateTransform();
 

@@ -7,7 +7,6 @@ GameObject::GameObject(std::string objectname)
 {
 	transform = Transform();
 	name = objectname;
-	visualElements = RenderObject();
 	behaviours = std::vector<Behaviour*>();
 	Engine::GEngine->AddGameObject(this);
 }

@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Constants.h"
 #include "TestScript.h"
+#include "RenderObject.h"
 Engine* Engine::GEngine = nullptr;
 
 Engine::Engine(bool startEngine)
@@ -78,7 +79,8 @@ void Engine::EngineLoop()
 
         for (int i = 0; i < gameObjects.size(); i++)
         {
-            gameObjects[i]->visualElements.Draw(gameObjects[i]);
+            gameObjects[i]->Render();
+            //gameObjects[i]->visualElements.Draw(gameObjects[i]);
         }
         
         gameWindow.display();
@@ -102,11 +104,41 @@ void Engine::ClearDestructionStack()
     destructionStack.clear();
 }
 
+/// <summary>
+/// Sorts Draw Stack to draw objects by depth priority
+/// </summary>
+void Engine::SortDrawStack()
+{
+    if (drawStack.size() > 1)
+    {
+        std::sort(drawStack.begin(), drawStack.end(), [](RenderObject* a, RenderObject* b)
+            {
+                return a->depth < b->depth;
+            });
+    }
+}
+
 void Engine::RemoveObjectFromList(GameObject* g)
 {
     if (g)
     {
         gameObjects.erase(std::remove(gameObjects.begin(), gameObjects.end(), g), gameObjects.end());
+    }
+}
+
+void Engine::RegisterDrawObject(RenderObject* object)
+{
+    if (object)
+    {
+        drawStack.push_back(object);
+    }
+}
+
+void Engine::RemoveDrawObject(RenderObject* object)
+{
+    if (object)
+    {
+        drawStack.erase(std::remove(drawStack.begin(), drawStack.end(), object), drawStack.end());
     }
 }
 

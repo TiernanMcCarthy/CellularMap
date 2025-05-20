@@ -1,12 +1,13 @@
 #pragma once
+#include "Behaviour.h"
 
-class GameObject;
-
-class RenderObject
+class RenderObject : public Behaviour
 {
 public:
+	//Used to calculate Draw Depth (Only useful for SFML, rework for OpenGL or something
+	unsigned int depth = 0;
 
-	virtual void Draw(GameObject *parent);
+	void Start() override;
 
-
+	void OnDestroy() override;
 };

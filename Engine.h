@@ -4,6 +4,8 @@
 #include "GameObject.h"
 #include "Object.h"
 
+class RenderObject;
+
 class Engine
 {
 public:
@@ -24,11 +26,11 @@ public:
 
 	float DeltaTime();
 
-	template<typename T>
-	T* CreateGameObject(std::string name);
-
-
 	void RemoveObjectFromList(GameObject* g);
+
+	void RegisterDrawObject(RenderObject* object);
+
+	void RemoveDrawObject(RenderObject* object);
 
 private:
 
@@ -38,11 +40,16 @@ private:
 	//holds all objects that are being destroyed this frame, we need to clear them from the appropriate areas
 	std::vector<Object*> destructionStack;
 
+	//Draw stack that contains all Behaviours that are involved in rendering
+	std::vector<RenderObject*> drawStack;
+
 	float deltaTime;
 
 	void EngineLoop();
 
 	void ClearDestructionStack();
+
+	void SortDrawStack();
 
 	bool isRunning = false;
 
