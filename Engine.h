@@ -1,10 +1,11 @@
 #pragma once
 #include "SFML/Window.hpp"
 #include "vector";
-#include "GameObject.h"
 #include "Object.h"
-
+#include "GameObject.h"
 class RenderObject;
+
+class GameObject;
 
 class Engine
 {
@@ -42,6 +43,7 @@ private:
 
 	//Draw stack that contains all Behaviours that are involved in rendering
 	std::vector<RenderObject*> drawStack;
+
 
 	float deltaTime;
 

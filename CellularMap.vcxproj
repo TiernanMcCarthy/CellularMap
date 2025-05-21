@@ -147,6 +147,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="image.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="RenderObject.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Image.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="TestScript.h" />

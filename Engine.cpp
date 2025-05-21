@@ -77,10 +77,13 @@ void Engine::EngineLoop()
         //Clear Screen and Draw New Scene
         gameWindow.clear();
 
-        for (int i = 0; i < gameObjects.size(); i++)
+
+        //Order Draw Stack for correct Render Order
+        SortDrawStack();
+
+        for (int i = 0; i < drawStack.size(); i++)
         {
-            gameObjects[i]->Render();
-            //gameObjects[i]->visualElements.Draw(gameObjects[i]);
+            drawStack[i]->Render();
         }
         
         gameWindow.display();

@@ -41,6 +41,10 @@ void GameObject::Update(float deltaTime)
 	}
 }
 
+void GameObject::Render()
+{
+}
+
 void GameObject::UpdateTransform()
 {
 }
