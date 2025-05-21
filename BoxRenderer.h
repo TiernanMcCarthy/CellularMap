@@ -1,0 +1,20 @@
+#pragma once
+#include "RenderObject.h"
+#include <SFML/Graphics.hpp>
+
+class BoxRenderer : public RenderObject
+{
+public:
+	sf::RectangleShape box;
+
+	sf::Color color;
+
+	void Render(sf::RenderWindow *target) override;
+
+	void UpdateVisualComponents() override;
+
+	void Start() override;
+
+	BoxRenderer(sf::Vector2<float> dimensions = sf::Vector2<float>(100,100));
+
+};

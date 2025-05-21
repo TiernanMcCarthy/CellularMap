@@ -5,6 +5,7 @@
 #include "Constants.h"
 #include "TestScript.h"
 #include "RenderObject.h"
+#include "BoxRenderer.h"
 Engine* Engine::GEngine = nullptr;
 
 Engine::Engine(bool startEngine)
@@ -44,9 +45,14 @@ void Engine::EngineLoop()
     
     TestScript* epicType = temp->GetBehaviour<TestScript>();
 
-    gameWindow.setFramerateLimit(60);
+    temp->AddBehaviour<BoxRenderer>();
 
-    Destroy(epicType);
+    temp->GetBehaviour<BoxRenderer>()->color = sf::Color::Blue;
+
+    temp->GetBehaviour<BoxRenderer>()->SetDimensions(50, 50);
+
+
+    gameWindow.setFramerateLimit(60);
 
     //Main Game Loop
     while (gameWindow.isOpen())
@@ -83,7 +89,7 @@ void Engine::EngineLoop()
 
         for (int i = 0; i < drawStack.size(); i++)
         {
-            drawStack[i]->Render();
+            drawStack[i]->Render(&gameWindow);
         }
         
         gameWindow.display();

@@ -10,6 +10,6 @@ public:
 
 	void Start() override;
 
-	void Render() override;
+	void Render(sf::RenderWindow *target) override;
 
 };

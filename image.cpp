@@ -5,7 +5,7 @@ void Image::Start()
 	
 }
 
-void Image::Render()
+void Image::Render(sf::RenderWindow *target)
 {
 
 }

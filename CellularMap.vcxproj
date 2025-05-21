@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Behaviour.cpp" />
+    <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -151,10 +152,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="RenderObject.cpp" />
+    <ClCompile Include="SpriteElement.cpp" />
     <ClCompile Include="TestScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h" />
+    <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FontManager.h" />
@@ -162,6 +165,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="RenderObject.h" />
+    <ClInclude Include="SpriteElement.h" />
     <ClInclude Include="TestScript.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -15,11 +15,7 @@ void TestScript::Start()
 void TestScript::Update(float deltaTime)
 {
     frameUpdates++;
-    std::cout << "This is an epic game update loop \n" << std::endl;
 
-    if (frameUpdates == 2)
-    {
-        Engine::GEngine->Destroy(gameObject);
-    }
+    gameObject->transform.SetPosition(gameObject->transform.GetPosition()+sf::Vector2<float>(50 * deltaTime, 0));
 }
 
