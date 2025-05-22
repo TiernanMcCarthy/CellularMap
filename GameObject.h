@@ -52,6 +52,19 @@ public:
 		}
 	}
 
+	void SetPosition(float x, float y)
+	{
+		sf::Vector2<float> worldPos = sf::Vector2<float>(x, y);
+		if (parent != nullptr)
+		{
+			localPosition = worldPos - parent->GetPosition();
+		}
+		else
+		{
+			localPosition = worldPos;
+		}
+	}
+
 	/// <summary>
 	/// Get world position
 	/// </summary>
@@ -145,7 +158,7 @@ public:
 		behaviours.push_back(behaviour);
 		behaviour->Start();
 
-		return behaviour;
+		return behaviour; 
 	}
 
 	template<typename T>

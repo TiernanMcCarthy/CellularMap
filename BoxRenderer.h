@@ -2,6 +2,8 @@
 #include "RenderObject.h"
 #include <SFML/Graphics.hpp>
 
+
+//Box that uses GameObject Size as reference for Rendering Shape
 class BoxRenderer : public RenderObject
 {
 public:

@@ -6,6 +6,7 @@
 #include "TestScript.h"
 #include "RenderObject.h"
 #include "BoxRenderer.h"
+#include "AABBCollider.h"
 Engine* Engine::GEngine = nullptr;
 
 Engine::Engine(bool startEngine)
@@ -40,17 +41,23 @@ void Engine::EngineLoop()
     sf::Clock clock;
 
     GameObject* temp = new GameObject("My epic Object");
-
+    
+    temp->transform.localScale = sf::Vector2<float>(200, 200);
     temp->AddBehaviour<TestScript>();
+    temp->AddBehaviour<AABBCollider>();
     
     TestScript* epicType = temp->GetBehaviour<TestScript>();
 
-    temp->AddBehaviour<BoxRenderer>();
 
-    temp->GetBehaviour<BoxRenderer>()->color = sf::Color::Blue;
+    BoxRenderer* boxR = temp->AddBehaviour<BoxRenderer>();
 
-    temp->GetBehaviour<BoxRenderer>()->SetDimensions(50, 50);
+    boxR->color = sf::Color::Blue;
 
+    AABBCollider collider = *temp->AddBehaviour<AABBCollider>();
+
+    sf::Vector2i mousePos=sf::Mouse::getPosition(gameWindow);
+
+    temp->GetBehaviour<BoxRenderer>()->UpdateVisualComponents();
 
     gameWindow.setFramerateLimit(60);
 
@@ -68,6 +75,16 @@ void Engine::EngineLoop()
 
         }
 
+        sf::Vector2i mousePos = sf::Mouse::getPosition(gameWindow);
+
+        if (collider.IsPosInside(sf::Vector2<float>(mousePos.x, mousePos.y)))
+        {
+            boxR->color = sf::Color::Green;
+        }
+        else
+        {
+            boxR->color = sf::Color::Red;
+        }
         //Get Delta Time
         deltaTime = clock.restart().asSeconds();
 
@@ -75,9 +92,6 @@ void Engine::EngineLoop()
         {
             //Update all GameObjects
             gameObjects[i]->Update(deltaTime);
-
-            //Update all Gameobject Transforms (Visual Elements e.t.c)
-            gameObjects[i]->UpdateTransform();
         }
 
         //Clear Screen and Draw New Scene
