@@ -61,6 +61,17 @@ void Engine::EngineLoop()
 
     gameWindow.setFramerateLimit(60);
 
+    //Test out some views
+    float x=500, y = 500;
+
+    float previousx = x;
+
+
+    // create a view with the rectangular area of the 2D world to show
+    sf::View newview = gameWindow.getView();
+
+    x = newview.getSize().x;
+    y = newview.getSize().y;
     //Main Game Loop
     while (gameWindow.isOpen())
     {
@@ -77,7 +88,13 @@ void Engine::EngineLoop()
 
         sf::Vector2i mousePos = sf::Mouse::getPosition(gameWindow);
 
-        if (collider.IsPosInside(sf::Vector2<float>(mousePos.x, mousePos.y)))
+        sf::Vector2f worldPos = gameWindow.mapPixelToCoords(mousePos);
+
+        x += 900 * deltaTime;
+        y += 900 * deltaTime;
+        newview.setSize(sf::Vector2f(x, y));
+      //  y = mousePos.y;
+        if (collider.IsPosInside(sf::Vector2<float>(worldPos.x, worldPos.y)))
         {
             boxR->color = sf::Color::Green;
         }
@@ -93,6 +110,8 @@ void Engine::EngineLoop()
             //Update all GameObjects
             gameObjects[i]->Update(deltaTime);
         }
+
+        gameWindow.setView(newview);
 
         //Clear Screen and Draw New Scene
         gameWindow.clear();

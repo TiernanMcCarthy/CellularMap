@@ -1,9 +1,21 @@
 #pragma once
 #include "Behaviour.h"
 #include <SFML/Graphics.hpp>
+
+namespace DrawMode
+{
+	//Enum for managing basic draw Layers 
+	enum DrawMode
+	{
+		GAME,
+		UI
+	};
+}
 class RenderObject : public Behaviour
 {
 public:
+	DrawMode::DrawMode drawLayer = DrawMode::GAME;
+
 	//Used to calculate Draw Depth (Only useful for SFML, rework for OpenGL or something
 	unsigned int depth = 0;
 
