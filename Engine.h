@@ -44,7 +44,6 @@ private:
 	//Draw stack that contains all Behaviours that are involved in rendering
 	std::vector<RenderObject*> drawStack;
 
-
 	float deltaTime;
 
 	void EngineLoop();

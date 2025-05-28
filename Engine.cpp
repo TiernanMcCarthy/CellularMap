@@ -7,6 +7,7 @@
 #include "RenderObject.h"
 #include "BoxRenderer.h"
 #include "AABBCollider.h"
+#include "SceneCamera.h"
 Engine* Engine::GEngine = nullptr;
 
 Engine::Engine(bool startEngine)
@@ -40,6 +41,11 @@ void Engine::EngineLoop()
     //Clock for calculating Delta Time
     sf::Clock clock;
 
+    //Create Background
+    BoxRenderer* background = new GameObject("Background")->AddBehaviour<BoxRenderer>();
+
+
+    //Object Testing
     GameObject* temp = new GameObject("My epic Object");
     
     temp->transform.localScale = sf::Vector2<float>(200, 200);
@@ -59,19 +65,15 @@ void Engine::EngineLoop()
 
     temp->GetBehaviour<BoxRenderer>()->UpdateVisualComponents();
 
+    //Camera Testing
+    GameObject* cameraTest = new GameObject("CameraTest");
+
+    SceneCamera* camera=cameraTest->AddBehaviour<SceneCamera>();
+
+    camera->renderTarget = &gameWindow;
+
     gameWindow.setFramerateLimit(60);
 
-    //Test out some views
-    float x=500, y = 500;
-
-    float previousx = x;
-
-
-    // create a view with the rectangular area of the 2D world to show
-    sf::View newview = gameWindow.getView();
-
-    x = newview.getSize().x;
-    y = newview.getSize().y;
     //Main Game Loop
     while (gameWindow.isOpen())
     {
@@ -90,10 +92,6 @@ void Engine::EngineLoop()
 
         sf::Vector2f worldPos = gameWindow.mapPixelToCoords(mousePos);
 
-        x += 900 * deltaTime;
-        y += 900 * deltaTime;
-        newview.setSize(sf::Vector2f(x, y));
-      //  y = mousePos.y;
         if (collider.IsPosInside(sf::Vector2<float>(worldPos.x, worldPos.y)))
         {
             boxR->color = sf::Color::Green;
@@ -111,7 +109,6 @@ void Engine::EngineLoop()
             gameObjects[i]->Update(deltaTime);
         }
 
-        gameWindow.setView(newview);
 
         //Clear Screen and Draw New Scene
         gameWindow.clear();

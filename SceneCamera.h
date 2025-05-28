@@ -7,19 +7,26 @@ class SceneCamera : public Behaviour
 
 public:
 
-	SceneCamera(sf::View startingView);
 
 	float zoomSpeed;
 
+	float cameraSpeed;
+
+	sf::View cameraView;
+
+	sf::RenderWindow *renderTarget;
+
 	sf::Vector2f size;
 
-	void Update(float deltaTime) override;
+	sf::Vector2f position;
 
 	sf::Vector2f minBounds;
 
 	sf::Vector2f maxBounds;
 
+	void Update(float deltaTime) override;
 
+	SceneCamera();
 private:
 
 	void ManageCamera(float deltaTime);

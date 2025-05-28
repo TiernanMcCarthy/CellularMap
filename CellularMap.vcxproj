@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -153,6 +153,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="RenderObject.cpp" />
+    <ClCompile Include="SceneCamera.cpp" />
     <ClCompile Include="SpriteElement.cpp" />
     <ClCompile Include="TestScript.cpp" />
   </ItemGroup>
@@ -166,7 +167,7 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Image.h" />
-    <ClInclude Include="ManageZoom.h" />
+    <ClInclude Include="SceneCamera.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="SpriteElement.h" />

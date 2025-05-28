@@ -11,6 +11,10 @@ public:
 
 	sf::Color color;
 
+	sf::Texture* renderTexture;
+
+	void ApplyImage(std::string path);
+
 	void Render(sf::RenderWindow *target) override;
 
 	void UpdateVisualComponents() override;
