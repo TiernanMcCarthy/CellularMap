@@ -42,7 +42,7 @@ void Engine::EngineLoop()
     sf::Clock clock;
 
     //Create Background
-    BoxRenderer* background = new GameObject("Background")->AddBehaviour<BoxRenderer>();
+    BoxRenderer* background = (new GameObject("Background"))->AddBehaviour<BoxRenderer>();
 
 
     //Object Testing
