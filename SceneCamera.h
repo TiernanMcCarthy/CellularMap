@@ -7,9 +7,6 @@ class SceneCamera : public Behaviour
 
 public:
 
-
-	float zoomSpeed;
-
 	float cameraSpeed;
 
 	sf::View cameraView;
@@ -28,6 +25,8 @@ public:
 
 	SceneCamera();
 private:
-
+	float zoomLevel;
+	float zoomSpeed;
+	float oldZoom;
 	void ManageCamera(float deltaTime);
 };

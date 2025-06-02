@@ -147,6 +147,7 @@
     <ClCompile Include="Behaviour.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EngineInputSystem.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="image.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="EngineInputSystem.h" />
     <ClInclude Include="SceneCamera.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="RenderObject.h" />

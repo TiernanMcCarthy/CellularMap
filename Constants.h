@@ -1,8 +1,8 @@
 #pragma once
 
 
-#define DISPLAYWIDTH 1800
-#define DISPLAYHEIGHT 1800
+#define DISPLAYWIDTH 1920
+#define DISPLAYHEIGHT 1080
 #define WINDOW_NAME "CellularMap 0.1"
 
 //Colours

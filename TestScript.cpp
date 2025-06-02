@@ -17,7 +17,6 @@ void TestScript::Start()
         std::cout << "(no gameObject assigned!)" << std::endl;
     }
 
-    gameObject->transform.SetPosition(900, 900);
 }
 
 void TestScript::Update(float deltaTime)  

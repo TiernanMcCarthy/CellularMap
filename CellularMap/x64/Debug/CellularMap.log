@@ -1,40 +1,7 @@
-﻿  AABBCollider.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'AABBCollider.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'AABBCollider.cpp')
-  
-  Behaviour.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'Behaviour.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'Behaviour.cpp')
-  
-  BoxRenderer.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'BoxRenderer.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'BoxRenderer.cpp')
-  
-  Engine.cpp
+﻿  Engine.cpp
 C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
   (compiling source file 'Engine.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\stdexcept(100,19):
       see declaration of 'std::runtime_error'
       C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
@@ -42,60 +9,4 @@ C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non 
 D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   (compiling source file 'Engine.cpp')
   
-  GameObject.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'GameObject.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'GameObject.cpp')
-  
-  RenderObject.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'RenderObject.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'RenderObject.cpp')
-  
-  SceneCamera.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'SceneCamera.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-  TestScript.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'TestScript.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'TestScript.cpp')
-  
-  main.cpp
-C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'main.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
-      see declaration of 'std::runtime_error'
-      C:\SFML\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-D:\Repos\CellularMap\Engine.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'main.cpp')
-  
-D:\Repos\CellularMap\FontManager.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'main.cpp')
-  
-  Generating Code...
   CellularMap.vcxproj -> D:\Repos\CellularMap\x64\Debug\CellularMap.exe

@@ -3,11 +3,13 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include "Constants.h"
+
 #include "TestScript.h"
 #include "RenderObject.h"
 #include "BoxRenderer.h"
 #include "AABBCollider.h"
 #include "SceneCamera.h"
+#include "EngineInputSystem.h"
 Engine* Engine::GEngine = nullptr;
 
 Engine::Engine(bool startEngine)
@@ -36,7 +38,10 @@ void Engine::EngineLoop()
     }
 
     //Create Game Window
-    sf::RenderWindow gameWindow = sf::RenderWindow(sf::VideoMode(sf::Vector2u(DISPLAYWIDTH, DISPLAYHEIGHT)), "Tiernan Engine");
+    sf::RenderWindow gameWindow = sf::RenderWindow(sf::VideoMode({ DISPLAYWIDTH, DISPLAYHEIGHT }), WINDOW_NAME,sf::State::Windowed);
+
+    //Create Input System
+    EngineInputSystem engineInput = EngineInputSystem();
 
     //Clock for calculating Delta Time
     sf::Clock clock;
@@ -45,14 +50,19 @@ void Engine::EngineLoop()
     BoxRenderer* background = (new GameObject("Background"))->AddBehaviour<BoxRenderer>();
 
 
+
+
+   // background->gameObject->transform.localScale = sf::Vector2<float>(500, 500);
+
     //Object Testing
     GameObject* temp = new GameObject("My epic Object");
     
-    temp->transform.localScale = sf::Vector2<float>(200, 200);
-    temp->AddBehaviour<TestScript>();
+    temp->transform.localScale = sf::Vector2<float>(1280, 720);
+    //temp->AddBehaviour<TestScript>();
     temp->AddBehaviour<AABBCollider>();
+
+    temp->transform.SetPosition(sf::Vector2f(DISPLAYWIDTH/2, DISPLAYHEIGHT/2));
     
-    TestScript* epicType = temp->GetBehaviour<TestScript>();
 
 
     BoxRenderer* boxR = temp->AddBehaviour<BoxRenderer>();
@@ -70,13 +80,23 @@ void Engine::EngineLoop()
 
     SceneCamera* camera=cameraTest->AddBehaviour<SceneCamera>();
 
+    camera->minBounds = sf::Vector2f(0, 0);
+
+    camera->maxBounds = sf::Vector2f(DISPLAYWIDTH, DISPLAYHEIGHT);
+
     camera->renderTarget = &gameWindow;
 
+    camera->cameraView = gameWindow.getView();
+
     gameWindow.setFramerateLimit(60);
+
 
     //Main Game Loop
     while (gameWindow.isOpen())
     {
+        //clean last frame's inputs
+        engineInput.CleanInputs();
+
         //Handle Events
         while (const std::optional event = gameWindow.pollEvent())
         {
@@ -85,8 +105,16 @@ void Engine::EngineLoop()
                 gameWindow.close();
                 break;
             }
+            else if (const auto* scrollWheel = event->getIf<sf::Event::MouseWheelScrolled>()) //crap and needs to be improved
+            {
+                engineInput.scrollWheelDelta = scrollWheel->delta;
+                    
+            }
 
         }
+
+        //Poll InputSystem
+        engineInput.PollInputs();
 
         sf::Vector2i mousePos = sf::Mouse::getPosition(gameWindow);
 
