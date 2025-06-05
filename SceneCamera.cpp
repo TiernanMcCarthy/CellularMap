@@ -51,7 +51,6 @@ void SceneCamera::ManageCamera(float deltaTime)
 	}
 
 	position = cameraView.getCenter()+movementVector * cameraSpeed * deltaTime;
-	std::cout << position.x<<std::endl;
 
 	position.x = std::clamp(position.x, minBounds.x ,maxBounds.x);
 

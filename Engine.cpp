@@ -49,8 +49,15 @@ void Engine::EngineLoop()
     //Create Background
     BoxRenderer* background = (new GameObject("Background"))->AddBehaviour<BoxRenderer>();
 
+    float pixelCount = (DISPLAYWIDTH * DISPLAYHEIGHT)/1.5f;
 
+    float pixelRatio = (pixelCount / (256 * 224));
 
+    background->gameObject->transform.localScale = sf::Vector2f(256*pixelRatio, 224*pixelRatio);
+
+    background->gameObject->transform.SetPosition(DISPLAYWIDTH / 2, DISPLAYHEIGHT / 2);
+
+    background->ApplyImage("flatImage.png");
 
    // background->gameObject->transform.localScale = sf::Vector2<float>(500, 500);
 

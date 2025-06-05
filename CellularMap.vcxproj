@@ -157,6 +157,7 @@
     <ClCompile Include="SceneCamera.cpp" />
     <ClCompile Include="SpriteElement.cpp" />
     <ClCompile Include="TestScript.cpp" />
+    <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="SpriteElement.h" />
     <ClInclude Include="TestScript.h" />
+    <ClInclude Include="TextBox.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
