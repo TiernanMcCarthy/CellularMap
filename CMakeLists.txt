@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.30)
 
-project(CmakeTest)
+project(CellularMap)
 
 include(FetchContent)
 
@@ -14,7 +14,7 @@ FetchContent_MakeAvailable(SFML)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(CmakeTest
+add_executable(CellularMap
     CmakeTest.cpp
     Engine.cpp
     EngineInputSystem.cpp
@@ -32,8 +32,8 @@ add_executable(CmakeTest
     AABBCollider.cpp
 )
 
-target_link_libraries(CmakeTest sfml-graphics)
-target_link_libraries(CmakeTest sfml-window)
-target_link_libraries(CmakeTest sfml-audio) 
-target_link_libraries(CmakeTest sfml-system) 
+target_link_libraries(CellularMap sfml-graphics)
+target_link_libraries(CellularMap sfml-window)
+target_link_libraries(CellularMap sfml-audio)
+target_link_libraries(CellularMap sfml-system)
 

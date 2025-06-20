@@ -7,6 +7,7 @@
 #include <typeinfo>
 #include <typeindex>
 #include "Engine.h"
+#include <algorithm>
 class Behaviour;
 
 struct Transform
