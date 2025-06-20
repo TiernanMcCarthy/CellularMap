@@ -31,3 +31,9 @@
 *.out
 *.app
 /.vs
+
+out/
+
+x64/
+
+Debug/

@@ -1,6 +1,6 @@
 #pragma once
 #include "SFML/Window.hpp"
-#include "vector";
+#include "vector"
 #include "Object.h"
 #include "GameObject.h"
 #include "EngineInputSystem.h"

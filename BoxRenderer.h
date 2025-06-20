@@ -11,7 +11,7 @@ public:
 
 	sf::Color color;
 
-	sf::Texture* renderTexture;
+	sf::Texture* renderTexture = nullptr;
 
 	void ApplyImage(std::string path);
 
