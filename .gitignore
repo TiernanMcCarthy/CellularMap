@@ -37,3 +37,5 @@ out/
 x64/
 
 Debug/
+
+.idea/
