@@ -9,9 +9,10 @@ target_include_directories(CellularMap PRIVATE
         ${PROJECT_SOURCE_DIR}/engine/include
         ${PROJECT_SOURCE_DIR}/game/include
 )
-
+if(WIN32)
 add_custom_command(TARGET CellularMap POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${CMAKE_BINARY_DIR}/engine/libEngine.dll
         $<TARGET_FILE_DIR:CellularMap>
 )
+endif(WIN32)
