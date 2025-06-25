@@ -4,6 +4,8 @@ file(GLOB_RECURSE ENGINE_HEADERS include/*.h)
 add_library(Engine SHARED
         ${ENGINE_SOURCES}
         ${ENGINE_HEADERS}
+        include/StartupSequence.h
+        src/StartupSequence.cpp
 )
 
 

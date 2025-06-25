@@ -1,5 +1,5 @@
 #include "EngineInputSystem.h"
-
+#include "Engine.h"
 EngineInputSystem* EngineInputSystem::InputSystem = nullptr;
 
 void EngineInputSystem::PollInputs()

@@ -1,9 +1,17 @@
 add_executable(CellularMap
         main.cpp
+        src/ObjectSpawnList.cpp
 )
 
 target_link_libraries(CellularMap PRIVATE Engine)
 
 target_include_directories(CellularMap PRIVATE
         ${PROJECT_SOURCE_DIR}/engine/include
+        ${PROJECT_SOURCE_DIR}/game/include
+)
+
+add_custom_command(TARGET CellularMap POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_BINARY_DIR}/engine/libEngine.dll
+        $<TARGET_FILE_DIR:CellularMap>
 )

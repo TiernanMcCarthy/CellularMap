@@ -4,9 +4,12 @@
 #include "Object.h"
 #include "GameObject.h"
 #include "EngineInputSystem.h"
+#include "StartupSequence.h"
 class RenderObject;
 
 class GameObject;
+
+class StartupSequence;
 
 class Engine
 {
@@ -34,6 +37,8 @@ public:
 
 	void RemoveDrawObject(RenderObject* object);
 
+	void AddStartupSequence(StartupSequence *param);
+
 private:
 
 	//holds all gameobjects in the Engine Scene
@@ -54,6 +59,8 @@ private:
 	void SortDrawStack();
 
 	bool isRunning = false;
+
+	std::vector<StartupSequence*> startupList;
 
 protected:
 };

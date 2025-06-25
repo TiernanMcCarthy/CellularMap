@@ -18,9 +18,7 @@ Engine::Engine(bool startEngine)
     if (startEngine)
     {
         Start();
-        std::cout<<"TESTING";
     }
-    //renderContext->create(sf::VideoMode())
 }
 
 void Engine::Start()
@@ -59,12 +57,19 @@ void Engine::EngineLoop()
 
     background->ApplyImage("flatImage.png");
 
+    int bob=87;
+
    // background->gameObject->transform.localScale = sf::Vector2<float>(500, 500)
 
     sf::Vector2i mousePos=sf::Mouse::getPosition(gameWindow);
 \
 
     gameWindow.setFramerateLimit(60);
+
+    for (int i=0; i<startupList.size(); i++)
+    {
+        startupList[i]->Execute();
+    }
 
 
     //Main Game Loop
@@ -197,4 +202,10 @@ float Engine::DeltaTime()
 {
     return deltaTime;
 }
+
+void Engine::AddStartupSequence(StartupSequence *param)
+{
+    startupList.push_back(param);
+}
+
 
