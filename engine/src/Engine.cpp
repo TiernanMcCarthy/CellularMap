@@ -15,6 +15,14 @@ Engine::Engine(bool startEngine)
 {
     Engine::GEngine = this;
     gameObjects = std::vector<GameObject*>();
+
+    //Create Game Window
+    renderWindow = sf::RenderWindow(sf::VideoMode({ DISPLAYWIDTH, DISPLAYHEIGHT }), WINDOW_NAME,sf::State::Windowed);
+
+    //Create Input System
+    engineInput = new EngineInputSystem();
+
+
     if (startEngine)
     {
         Start();
@@ -35,12 +43,6 @@ void Engine::EngineLoop()
         return;
     }
 
-    //Create Game Window
-    sf::RenderWindow gameWindow = sf::RenderWindow(sf::VideoMode({ DISPLAYWIDTH, DISPLAYHEIGHT }), WINDOW_NAME,sf::State::Windowed);
-
-    //Create Input System
-    EngineInputSystem engineInput = EngineInputSystem();
-
     //Clock for calculating Delta Time
     sf::Clock clock;
 
@@ -57,14 +59,12 @@ void Engine::EngineLoop()
 
     background->ApplyImage("flatImage.png");
 
-    int bob=87;
 
-   // background->gameObject->transform.localScale = sf::Vector2<float>(500, 500)
 
-    sf::Vector2i mousePos=sf::Mouse::getPosition(gameWindow);
+    sf::Vector2i mousePos=sf::Mouse::getPosition(renderWindow);
 \
 
-    gameWindow.setFramerateLimit(60);
+    renderWindow.setFramerateLimit(60);
 
     for (int i=0; i<startupList.size(); i++)
     {
@@ -73,33 +73,34 @@ void Engine::EngineLoop()
 
 
     //Main Game Loop
-    while (gameWindow.isOpen())
+    while (renderWindow.isOpen())
     {
         //clean last frame's inputs
-        engineInput.CleanInputs();
+        engineInput->CleanInputs();
 
         //Handle Events
-        while (const std::optional event = gameWindow.pollEvent())
+        while (const std::optional event = renderWindow.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
             {
-                gameWindow.close();
+                renderWindow.close();
                 break;
             }
             else if (const auto* scrollWheel = event->getIf<sf::Event::MouseWheelScrolled>()) //crap and needs to be improved
             {
-                engineInput.scrollWheelDelta = scrollWheel->delta;
-
+                engineInput->scrollWheelDelta = scrollWheel->delta;
             }
+
+
 
         }
 
         //Poll InputSystem
-        engineInput.PollInputs();
+        engineInput->PollInputs();
 
-        sf::Vector2i mousePos = sf::Mouse::getPosition(gameWindow);
+        sf::Vector2i mousePos = sf::Mouse::getPosition(renderWindow);
 
-        sf::Vector2f worldPos = gameWindow.mapPixelToCoords(mousePos);
+        sf::Vector2f worldPos = renderWindow.mapPixelToCoords(mousePos);
 
         //Get Delta Time
         deltaTime = clock.restart().asSeconds();
@@ -112,7 +113,7 @@ void Engine::EngineLoop()
 
 
         //Clear Screen and Draw New Scene
-        gameWindow.clear();
+        renderWindow.clear();
 
 
         //Order Draw Stack for correct Render Order
@@ -120,10 +121,10 @@ void Engine::EngineLoop()
 
         for (int i = 0; i < drawStack.size(); i++)
         {
-            drawStack[i]->Render(&gameWindow);
+            drawStack[i]->Render(&renderWindow);
         }
         
-        gameWindow.display();
+        renderWindow.display();
 
         //Clear Destruction Stack for Deleted Objects
         ClearDestructionStack();
@@ -207,5 +208,11 @@ void Engine::AddStartupSequence(StartupSequence *param)
 {
     startupList.push_back(param);
 }
+
+sf::RenderWindow &Engine::GetRenderWindow()
+{
+    return renderWindow;
+}
+
 
 

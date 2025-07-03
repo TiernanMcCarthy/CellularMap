@@ -1,15 +1,17 @@
 #pragma once
-#include "SFML/Window.hpp"
-#include "vector"
-#include "Object.h"
-#include "GameObject.h"
 #include "EngineInputSystem.h"
+#include "GameObject.h"
+#include "Object.h"
+#include "SFML/Graphics/RenderWindow.hpp"
+#include "SFML/Window.hpp"
 #include "StartupSequence.h"
+#include "vector"
 class RenderObject;
 
 class GameObject;
 
 class StartupSequence;
+
 
 class Engine
 {
@@ -39,6 +41,8 @@ public:
 
 	void AddStartupSequence(StartupSequence *param);
 
+    sf::RenderWindow &GetRenderWindow();
+
 private:
 
 	//holds all gameobjects in the Engine Scene
@@ -61,6 +65,10 @@ private:
 	bool isRunning = false;
 
 	std::vector<StartupSequence*> startupList;
+
+    EngineInputSystem* engineInput;
+
+    sf::RenderWindow renderWindow;
 
 protected:
 };

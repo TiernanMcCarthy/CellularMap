@@ -24,6 +24,8 @@ public:
 	void Update(float deltaTime) override;
 
 	SceneCamera();
+
+    void PrintTest();
 private:
 	float zoomLevel;
 	float zoomSpeed;

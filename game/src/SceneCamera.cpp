@@ -1,5 +1,6 @@
 #include "SceneCamera.h"
 #include "Engine.h"
+#include "EngineInputSystem.h"
 #include "math.h"
 #include <iostream>
 
@@ -71,3 +72,9 @@ void SceneCamera::Update(float deltaTime)
 {
 	ManageCamera(deltaTime);
 }
+
+void SceneCamera::PrintTest()
+{
+    std::cout << position.x << " jepic " << position.y << std::endl;
+}
+

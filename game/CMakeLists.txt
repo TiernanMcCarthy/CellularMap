@@ -1,6 +1,7 @@
 add_executable(CellularMap
         main.cpp
         src/ObjectSpawnList.cpp
+        src/SceneCamera.cpp
 )
 
 target_link_libraries(CellularMap PRIVATE Engine)
@@ -16,3 +17,4 @@ add_custom_command(TARGET CellularMap POST_BUILD
         $<TARGET_FILE_DIR:CellularMap>
 )
 endif(WIN32)
+message("ENGINE INCLUDE PATH: ${PROJECT_SOURCE_DIR}/engine/include")

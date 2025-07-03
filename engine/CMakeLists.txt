@@ -6,6 +6,9 @@ add_library(Engine SHARED
         ${ENGINE_HEADERS}
         include/StartupSequence.h
         src/StartupSequence.cpp
+        src/Button.cpp
+        include/FunctionSubscriber.h
+        src/FunctionSubscriber.cpp
 )
 
 
