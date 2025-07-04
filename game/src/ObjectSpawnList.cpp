@@ -61,11 +61,11 @@ void ObjectSpawnList::Execute()
 
      camera->cameraView = camera->renderTarget->getView();
 
-    // FunctionSubscriber functionTest= FunctionSubscriber();
+     FunctionSubscriber functionTest= FunctionSubscriber();
 
-   // functionTest.Subscribe(std::bind(&SceneCamera::PrintTest, camera));
+    functionTest.Subscribe(std::bind(&SceneCamera::PrintTest, camera));
 
-    //functionTest.Activate();
+    functionTest.Activate();
 
     //functionTest.PassFunction(*camera->PrintTest);
 

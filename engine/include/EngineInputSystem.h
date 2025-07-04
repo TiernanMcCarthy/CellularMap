@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/System/Vector2.hpp"
 #include "SFML/Window/Event.hpp"
-
+#include "FunctionSubscriber.h"
 #include <vector>
 
 
@@ -10,32 +10,87 @@
 class GenericInputContainer
 {
 public:
-    GenericInputContainer();
+    virtual ~GenericInputContainer() = default;
 
-    bool wasPerformedThisFrame;
-    bool wasReleasedThisFrame;
+    //GenericInputContainer() = default;
 
-    bool IsPerformed;
+    GenericInputContainer()
+    {
+        wasFirstPerformedThisFrame=false;
+        wasReleasedThisFrame=false;
+        isPerformed=false;
+        wasPerformedLastFrame=false;
+
+    }
+
+    bool wasFirstPerformedThisFrame{};
+    bool wasReleasedThisFrame{};
+
+    bool isPerformed{};
+
+
 
     virtual void Clean()
     {
-        wasPerformedThisFrame = false;
+        wasFirstPerformedThisFrame = false;
         wasReleasedThisFrame = false;
-        IsPerformed = false;
+        isPerformed = false;
+    }
+
+    void SetPerformed(bool isHappening)
+    {
+        isPerformed = isHappening;
     }
 
     virtual void ProcessInput()
     {
+        //Find out if the action has happened this frame, good for checking inputs on a frame basis
+        if (isPerformed)
+        {
 
+            if (!wasPerformedLastFrame)
+            {
+                wasFirstPerformedThisFrame=true;
+                std::cout<<"Was Pressed This Frame"<<std::endl;
+            }
+            else
+            {
+                wasFirstPerformedThisFrame=false;
+            }
+
+            //Record that this action was pressed this frame
+            wasPerformedLastFrame=true;
+            wasReleasedThisFrame=false;
+        }
+        else //Records states around the action not happening
+        {
+
+            if (wasPerformedLastFrame==true)
+            {
+                wasReleasedThisFrame=true;
+                std::cout<<"Was Released This Frame"<<std::endl;
+            }
+            else
+            {
+                wasFirstPerformedThisFrame=false;
+            }
+            wasPerformedLastFrame=false;
+            wasFirstPerformedThisFrame=false;
+        }
     }
 
 private:
-    bool wasPerformedLastFrame;
+    bool wasPerformedLastFrame{};
 };
 
 ///
 class FloatInputContainer
-{};
+{
+public:
+
+    float value;
+
+};
 
 
 class EngineInputSystem
@@ -49,14 +104,31 @@ public:
 
 	void CleanInputs();
 
-    void AddInputEvent(sf::Event::KeyPressed);
+    void AddInputEvent(sf::Event);
 
-    void AddInputEvent(sf::Event::MouseButtonPressed);
 
 	EngineInputSystem();
+
+#pragma region  Input Sources
+
+    GenericInputContainer *MouseOne;
+
+    GenericInputContainer *MouseTwo;
+
+    GenericInputContainer *eKey;
+
+
+#pragma endregion
+
+    sf::Vector2<float> WorldSpaceMousePos();
+
 
 private:
 
     //List of Input Events to be processed later, cleaned once per frame;
     std::vector<sf::Event> inputEvents;
+
+    FunctionSubscriber *ProcessInputEvent;
+
+    void BindInputProcessing(GenericInputContainer *objectPointer);
 };

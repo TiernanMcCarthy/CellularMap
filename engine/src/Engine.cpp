@@ -9,6 +9,7 @@
 #include "BoxRenderer.h"
 #include "AABBCollider.h"
 #include "EngineInputSystem.h"
+
 Engine* Engine::GEngine = nullptr;
 
 Engine::Engine(bool startEngine)
@@ -89,6 +90,23 @@ void Engine::EngineLoop()
             else if (const auto* scrollWheel = event->getIf<sf::Event::MouseWheelScrolled>()) //crap and needs to be improved
             {
                 engineInput->scrollWheelDelta = scrollWheel->delta;
+            }
+            else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>())
+            {
+                EngineInputSystem::InputSystem->AddInputEvent(*keyPressed);
+            }
+            else if (const auto* keyReleased = event->getIf<sf::Event::KeyReleased>())
+            {
+                EngineInputSystem::InputSystem->AddInputEvent(*keyReleased);
+            }
+            else if (const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>())
+            {
+                EngineInputSystem::InputSystem->AddInputEvent(*mousePressed);
+            }
+            else if (const auto* mouseReleased = event->getIf<sf::Event::MouseButtonReleased>())
+            {
+                EngineInputSystem::InputSystem->AddInputEvent(*mouseReleased);
+                //EngineInputSystem::InputSystem->AddInputEvent(*mouseReleased);
             }
 
 
