@@ -97,7 +97,8 @@ void EngineInputSystem::AddInputEvent(sf::Event event)
 
 sf::Vector2<float> EngineInputSystem::WorldSpaceMousePos()
 {
-    return sf::Vector2<float>(0,0);
+    return Engine::GEngine->GetRenderWindow().mapPixelToCoords(sf::Mouse::getPosition());
 }
+
 
 

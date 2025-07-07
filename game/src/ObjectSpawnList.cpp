@@ -39,9 +39,9 @@ void ObjectSpawnList::Execute()
 
     boxR->UpdateVisualComponents();
 
-    //Button* button=temp->AddBehaviour<Button>();
+    Button* button=temp->AddBehaviour<Button>();
 
-    //button->OnPress.Subscribe(EPICPRINTING);
+    button->OnPress.Subscribe(EPICPRINTING);
 
 
 
@@ -61,11 +61,15 @@ void ObjectSpawnList::Execute()
 
      camera->cameraView = camera->renderTarget->getView();
 
-     FunctionSubscriber functionTest= FunctionSubscriber();
 
-    functionTest.Subscribe(std::bind(&SceneCamera::PrintTest, camera));
 
-    functionTest.Activate();
+     //FunctionSubscriber functionTest= FunctionSubscriber();
+
+    //functionTest.Subscribe(std::bind(&SceneCamera::PrintTest, camera));
+
+    //functionTest.Activate();
+
+
 
     //functionTest.PassFunction(*camera->PrintTest);
 

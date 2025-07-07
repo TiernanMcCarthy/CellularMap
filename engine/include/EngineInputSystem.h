@@ -51,7 +51,6 @@ public:
             if (!wasPerformedLastFrame)
             {
                 wasFirstPerformedThisFrame=true;
-                std::cout<<"Was Pressed This Frame"<<std::endl;
             }
             else
             {
@@ -64,11 +63,10 @@ public:
         }
         else //Records states around the action not happening
         {
-
+            wasReleasedThisFrame=false;
             if (wasPerformedLastFrame==true)
             {
                 wasReleasedThisFrame=true;
-                std::cout<<"Was Released This Frame"<<std::endl;
             }
             else
             {
@@ -120,7 +118,7 @@ public:
 
 #pragma endregion
 
-    sf::Vector2<float> WorldSpaceMousePos();
+    static sf::Vector2<float> WorldSpaceMousePos();
 
 
 private:

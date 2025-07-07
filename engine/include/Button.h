@@ -16,8 +16,11 @@ public:
 
     void Start() override;
 
+    void Update(float deltaTime) override;
+
 private:
     AABBCollider collider;
 
+    void ManageButton();
 
 };

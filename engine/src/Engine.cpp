@@ -61,17 +61,12 @@ void Engine::EngineLoop()
     background->ApplyImage("flatImage.png");
 
 
-
-    sf::Vector2i mousePos=sf::Mouse::getPosition(renderWindow);
-\
-
     renderWindow.setFramerateLimit(60);
 
     for (int i=0; i<startupList.size(); i++)
     {
         startupList[i]->Execute();
     }
-
 
     //Main Game Loop
     while (renderWindow.isOpen())
