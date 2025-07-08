@@ -8,6 +8,7 @@
 Button::Button()
 {
     OnPress = FunctionSubscriber();
+    //collider.
 }
 
 Button::~Button()

@@ -2,6 +2,7 @@ add_executable(CellularMap
         main.cpp
         src/ObjectSpawnList.cpp
         src/SceneCamera.cpp
+        src/TestScript.cpp
 )
 
 target_link_libraries(CellularMap PRIVATE Engine)

@@ -13,6 +13,7 @@
 #include "BoxRenderer.h"
 #include "Button.h"
 #include "FunctionSubscriber.h"
+#include "TestScript.h"
 
 ObjectSpawnList::ObjectSpawnList()
 {
@@ -27,24 +28,17 @@ void EPICPRINTING()
 
 void ObjectSpawnList::Execute()
 {
-    GameObject *temp = new GameObject("EpicTestObject");
+    //TestScript *temp = (TestScript*)new GameObject("EpicTestObject").AddBehaviour<TestScript>();
 
-    temp->transform.localScale=sf::Vector2<float>(1280, 720);
+   // temp->gameObject.transform.localScale=sf::Vector2<float>(1280, 720);
 
-    temp->transform.SetPosition(sf::Vector2f(DISPLAYWIDTH/2, DISPLAYHEIGHT/2));
+     GameObject* temp= new GameObject("Our First Button");
 
-    BoxRenderer* boxR = temp->AddBehaviour<BoxRenderer>();
+    TestScript* testButton = temp->AddBehaviour<TestScript>();
 
-    boxR->color = sf::Color::Blue;
+    //temp->AddBehaviour<TestScript>();
 
-    boxR->UpdateVisualComponents();
-
-    Button* button=temp->AddBehaviour<Button>();
-
-    button->OnPress.Subscribe(EPICPRINTING);
-
-
-
+     //TestScript* ourButton= temp->AddBehaviour<TestScript>();
      //Generate Camera
      GameObject *cameraTemp= new GameObject("CameraTest");
 
