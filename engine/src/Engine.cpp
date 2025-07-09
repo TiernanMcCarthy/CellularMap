@@ -63,6 +63,9 @@ void Engine::EngineLoop()
 
     renderWindow.setFramerateLimit(60);
 
+
+    //Manage Startup Sequences, used for spawning objects, scene loading and scene management could
+    //Come next
     for (int i=0; i<startupList.size(); i++)
     {
         startupList[i]->Execute();

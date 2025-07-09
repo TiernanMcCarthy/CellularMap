@@ -16,23 +16,24 @@ static sf::Clock globalClock;
 
 void TestScript::Start()
 {
-    gameObject->transform.localScale=sf::Vector2<float>(1280, 720);
+    gameObject->transform.localScale=sf::Vector2<float>(DISPLAYWIDTH/10, DISPLAYWIDTH/10);
 
-    gameObject->transform.SetPosition(sf::Vector2f(DISPLAYWIDTH/2, DISPLAYHEIGHT/2));
+    gameObject->transform.SetPosition(sf::Vector2f(DISPLAYWIDTH/18, DISPLAYHEIGHT/10));
 
     boxR = gameObject->AddBehaviour<BoxRenderer>();
+     //boxR->SetDimensions(gameObject->transform.localScale.x, gameObject->transform.localScale.y);
      activeColour=sf::Color::Green;
      inactiveColour=sf::Color::Red;
     boxR->color = inactiveColour;
 
     boxR->UpdateVisualComponents();
 
+
      //boxR->
 
     attachedButton=gameObject->AddBehaviour<Button>();
      attachedButton->OnPress.Subscribe(std::bind(&TestScript::ToggleAttached,this));
-    //attachedButton->OnPress.Subscribe([this](){this->ToggleAttached();});
-    //std::bind(&SceneCamera::PrintTest, camera)
+
 
 }
 void TestScript::ToggleAttached()

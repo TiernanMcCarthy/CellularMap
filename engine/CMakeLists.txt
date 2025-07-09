@@ -9,6 +9,7 @@ add_library(Engine SHARED
         src/Button.cpp
         include/FunctionSubscriber.h
         src/FunctionSubscriber.cpp
+        include/CameraView.h
 )
 
 

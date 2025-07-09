@@ -4,6 +4,7 @@
 #include "Button.h"
 
 #include "EngineInputSystem.h"
+#include "GameObject.h"
 
 Button::Button()
 {
@@ -19,8 +20,9 @@ Button::~Button()
 
 void Button::Start()
 {
-    collider = AABBCollider();
-    collider.SetGameObject(gameObject);
+    collider = gameObject->AddBehaviour<AABBCollider>();
+
+    //collider.
 }
 
 void Button::ManageButton()
@@ -31,7 +33,7 @@ void Button::ManageButton()
     {
         sf::Vector2<float> pos=EngineInputSystem::WorldSpaceMousePos();
 
-        if (collider.IsPosInside(pos))
+        if (collider->IsPosInside(pos))
         {
             OnPress.Activate();
         }
@@ -41,8 +43,6 @@ void Button::ManageButton()
 void Button::Update(float deltaTime)
 {
     ManageButton();
-
-
 }
 
 

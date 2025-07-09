@@ -19,7 +19,7 @@ public:
     void Update(float deltaTime) override;
 
 private:
-    AABBCollider collider;
+    AABBCollider* collider;
 
     void ManageButton();
 

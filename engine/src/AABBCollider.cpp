@@ -23,6 +23,7 @@ bool AABBCollider::IsPosInside(sf::Vector2<float> position)
 
 void AABBCollider::Start()
 {
+
 }
 
 void AABBCollider::Update(float deltaTime)
