@@ -10,6 +10,8 @@ public:
     ///On press event system, subscribe to this for functionality
     FunctionSubscriber OnPress;
 
+    bool worldSpace=true;
+
     Button();
 
     ~Button();

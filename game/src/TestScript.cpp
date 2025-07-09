@@ -27,13 +27,14 @@ void TestScript::Start()
     boxR->color = inactiveColour;
 
     boxR->UpdateVisualComponents();
+     boxR->drawLayer=DrawMode::UI;
 
 
      //boxR->
 
     attachedButton=gameObject->AddBehaviour<Button>();
      attachedButton->OnPress.Subscribe(std::bind(&TestScript::ToggleAttached,this));
-
+    attachedButton->worldSpace=false;
 
 }
 void TestScript::ToggleAttached()

@@ -5,5 +5,6 @@
 //UI should render seperate from the game view
 class CameraView
 {
+public:
 
 };

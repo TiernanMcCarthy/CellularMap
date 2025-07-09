@@ -31,7 +31,15 @@ void Button::ManageButton()
 
     if (EngineInputSystem::InputSystem->MouseOne->wasReleasedThisFrame)
     {
-        sf::Vector2<float> pos=EngineInputSystem::WorldSpaceMousePos();
+        sf::Vector2<float> pos;
+        if (worldSpace)
+        {
+            pos=EngineInputSystem::WorldSpaceMousePos();
+        }
+        else
+        {
+            pos=(sf::Vector2<float>)sf::Mouse::getPosition(Engine::GEngine->GetRenderWindow());
+        }
 
         if (collider->IsPosInside(pos))
         {

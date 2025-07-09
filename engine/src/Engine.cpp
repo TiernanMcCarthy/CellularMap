@@ -50,6 +50,7 @@ void Engine::EngineLoop()
     //Create Background
     BoxRenderer* background = (new GameObject("Background"))->AddBehaviour<BoxRenderer>();
 
+    //Setup Background
     float pixelCount = (DISPLAYWIDTH * DISPLAYHEIGHT)/1.5f;
 
     float pixelRatio = (pixelCount / (256 * 224));
@@ -61,7 +62,12 @@ void Engine::EngineLoop()
     background->ApplyImage("flatImage.png");
 
 
+    //Manage Window Settings
     renderWindow.setFramerateLimit(60);
+    //Create UI View layer
+    sf::View UILayer = renderWindow.getView();
+    //Create Game View Layer
+    sf::View GameLayer= renderWindow.getView();
 
 
     //Manage Startup Sequences, used for spawning objects, scene loading and scene management could
@@ -134,11 +140,22 @@ void Engine::EngineLoop()
 
         //Order Draw Stack for correct Render Order
         SortDrawStack();
-
+        GameLayer=renderWindow.getView();
         for (int i = 0; i < drawStack.size(); i++)
         {
+            if (drawStack[i]->drawLayer==DrawMode::GAME)
+            {
+                renderWindow.setView(GameLayer);
+            }
+            else
+            {
+                renderWindow.setView(UILayer);
+            }
+
+
             drawStack[i]->Render(&renderWindow);
         }
+        renderWindow.setView(GameLayer);
         
         renderWindow.display();
 
