@@ -2,18 +2,17 @@
 // Created by Tiern on 25/06/2025.
 //
 
+//Engine
 #include "ObjectSpawnList.h"
 #include "GameObject.h"
 #include "Constants.h"
 #include "Engine.h"
-#include "SceneCamera.h"
-
-#include "AABBCollider.h"
-
 #include "BoxRenderer.h"
-#include "Button.h"
-#include "FunctionSubscriber.h"
+
+//Game
+#include "SceneCamera.h"
 #include "TestScript.h"
+#include "WorldMap.h"
 
 ObjectSpawnList::ObjectSpawnList()
 {
@@ -28,17 +27,11 @@ void EPICPRINTING()
 
 void ObjectSpawnList::Execute()
 {
-    //TestScript *temp = (TestScript*)new GameObject("EpicTestObject").AddBehaviour<TestScript>();
-
-   // temp->gameObject.transform.localScale=sf::Vector2<float>(1280, 720);
-
      GameObject* temp= new GameObject("Our First Button");
 
-    TestScript* testButton = temp->AddBehaviour<TestScript>();
+     TestScript* testButton = temp->AddBehaviour<TestScript>();
 
-    //temp->AddBehaviour<TestScript>();
 
-     //TestScript* ourButton= temp->AddBehaviour<TestScript>();
      //Generate Camera
      GameObject *cameraTemp= new GameObject("CameraTest");
 
@@ -55,18 +48,9 @@ void ObjectSpawnList::Execute()
 
      camera->cameraView = camera->renderTarget->getView();
 
-
-
-     //FunctionSubscriber functionTest= FunctionSubscriber();
-
-    //functionTest.Subscribe(std::bind(&SceneCamera::PrintTest, camera));
-
-    //functionTest.Activate();
-
-
-
-    //functionTest.PassFunction(*camera->PrintTest);
-
-
+     //Create World Map
+     GameObject *worldObject = new GameObject("WorldMap");
+     WorldMap* worldMap = worldObject->AddBehaviour<WorldMap>();
+     worldMap->LoadMap("map.png");
 
 }

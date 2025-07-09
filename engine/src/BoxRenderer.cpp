@@ -1,7 +1,7 @@
 #include "BoxRenderer.h"
 #include "GameObject.h"
 #include <iostream>
-void BoxRenderer::ApplyImage(std::string path)
+bool BoxRenderer::ApplyImage(std::string path)
 {
 	if (renderTexture)
 	{
@@ -9,16 +9,15 @@ void BoxRenderer::ApplyImage(std::string path)
 	}
 
 	renderTexture = new sf::Texture();
-
 	if (renderTexture->loadFromFile(path))
 	{
 		box.setTexture(renderTexture);
+	    return true;
 		//Texture Loaded
 	}
-	else
-	{
-		std::cout << "Invalid path or file type at " + path << std::endl;
-	}
+    std::cout << "Invalid path or file type at " + path << std::endl;
+    return false;
+
 }
 void BoxRenderer::Render(sf::RenderWindow *target)
 {
@@ -39,7 +38,10 @@ void BoxRenderer::UpdateVisualComponents()
 {
 	box.setSize(gameObject->transform.localScale);
     box.setOrigin(sf::Vector2f(gameObject->transform.localScale.x / 2, gameObject->transform.localScale.y / 2));
-	box.setFillColor(color);
+    if (renderTexture==nullptr)
+    {
+        box.setFillColor(color);
+    }
 }
 
 

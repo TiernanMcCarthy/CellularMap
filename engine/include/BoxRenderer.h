@@ -13,7 +13,7 @@ public:
 
 	sf::Texture* renderTexture = nullptr;
 
-	void ApplyImage(std::string path);
+	bool ApplyImage(std::string path);
 
 	void Render(sf::RenderWindow *target) override;
 

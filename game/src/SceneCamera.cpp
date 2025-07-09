@@ -36,11 +36,11 @@ void SceneCamera::ManageCamera(float deltaTime)
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 	{
-		movementVector.y += 1;
+		movementVector.y -= 1;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 	{
-		movementVector.y -= 1;
+		movementVector.y += 1;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
