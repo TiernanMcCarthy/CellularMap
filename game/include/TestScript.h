@@ -2,6 +2,7 @@
 #include "Behaviour.h"
 #include "BoxRenderer.h"
 #include "Button.h"
+#include "TextBox.h"
 
 #include <iostream>
 
@@ -20,8 +21,11 @@ public:
 
     sf::Color activeColour;
     sf::Color inactiveColour;
+
 private:
     Button* attachedButton;
+
+    TextBox* textBox;
 
     BoxRenderer* boxR;
 };

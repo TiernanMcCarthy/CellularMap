@@ -16,7 +16,7 @@ int main()
     //Start FontManager
     sf::Font font;
     std::cout << "Loading Fonts \n" << std::endl;
-    if (font.openFromFile("arial.ttf"))
+    if (font.openFromFile("assets/arial.ttf"))
     {
         FontManager::SetDefaultFont(&font);
     }

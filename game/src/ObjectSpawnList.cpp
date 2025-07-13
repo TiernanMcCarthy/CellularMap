@@ -51,6 +51,6 @@ void ObjectSpawnList::Execute()
      //Create World Map
      GameObject *worldObject = new GameObject("WorldMap");
      WorldMap* worldMap = worldObject->AddBehaviour<WorldMap>();
-     worldMap->LoadMap("map.png");
+     worldMap->LoadMap("assets/map.png");
 
 }

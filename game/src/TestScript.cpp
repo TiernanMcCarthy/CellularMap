@@ -36,6 +36,13 @@ void TestScript::Start()
      attachedButton->OnPress.Subscribe(std::bind(&TestScript::ToggleAttached,this));
     attachedButton->worldSpace=false;
 
+     textBox=gameObject->AddBehaviour<TextBox>();
+     textBox->text="Our Test Button";
+     textBox->depth=2;
+     textBox->drawLayer=DrawMode::UI;
+     textBox->offsetPos=sf::Vector2<float>(-80,0);
+     textBox->fontSize=20;
+
 }
 void TestScript::ToggleAttached()
 {

@@ -11,12 +11,18 @@ class Settlement;
 /// owns them
 class TerrainTile
 {
-    sf::Color originalColour;
-
-    Settlement* owner;
+public:
 
     TerrainTile();
 
-    public:
+    void SetOwner(Settlement* newOwner);
 
+    void ClearSettlement();
+
+    Settlement& GetOwner();
+
+private:
+    sf::Color originalColour;
+
+    Settlement* owner;
 };

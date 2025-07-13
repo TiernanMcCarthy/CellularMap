@@ -59,7 +59,7 @@ void Engine::EngineLoop()
 
     background->gameObject->transform.SetPosition(DISPLAYWIDTH / 2, DISPLAYHEIGHT / 2);
 
-    background->ApplyImage("flatImage.png");
+    background->ApplyImage("assets/flatImage.png");
 
 
     //Manage Window Settings
@@ -187,7 +187,13 @@ void Engine::SortDrawStack()
     {
         std::sort(drawStack.begin(), drawStack.end(), [](RenderObject* a, RenderObject* b)
             {
-                return a->depth < b->depth;
+                float aDepth=a->depth;
+                float bDepth=b->depth;
+
+                if (a->drawLayer==DrawMode::UI) {aDepth*=10;}
+                if (b->drawLayer==DrawMode::UI) {bDepth*=10;}
+
+                return aDepth < bDepth;
             });
     }
 }

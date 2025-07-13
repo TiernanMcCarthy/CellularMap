@@ -12,6 +12,7 @@ void RenderObject::UpdateVisualComponents()
 void RenderObject::Start()
 {
 	Engine::GEngine->RegisterDrawObject(this);
+    depth=1;
 	dimensions = gameObject->transform.localScale;
 }
 

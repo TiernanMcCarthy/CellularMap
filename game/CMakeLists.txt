@@ -5,6 +5,7 @@ add_executable(CellularMap
         src/TestScript.cpp
         src/WorldMap.cpp
         include/TerrainTile.h
+        src/TerrainTile.cpp
 )
 
 target_link_libraries(CellularMap PRIVATE Engine)
@@ -20,4 +21,12 @@ add_custom_command(TARGET CellularMap POST_BUILD
         $<TARGET_FILE_DIR:CellularMap>
 )
 endif(WIN32)
+
+add_custom_command(TARGET CellularMap POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E echo "Copying assets from ${PROJECT_SOURCE_DIR}/assets to $<TARGET_FILE_DIR:CellularMap>/assets"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${PROJECT_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:CellularMap>/assets
+)
 message("ENGINE INCLUDE PATH: ${PROJECT_SOURCE_DIR}/engine/include")
+message("Assets INCLUDE PATH: ${PROJECT_SOURCE_DIR}/assets")
