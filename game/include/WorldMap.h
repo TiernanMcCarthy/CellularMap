@@ -6,6 +6,8 @@
 #include "Behaviour.h"
 #include "BoxRenderer.h"
 
+class TerrainTile;
+
 class WorldMap : public Behaviour {
 public:
 
@@ -20,4 +22,10 @@ public:
 private:
 
     BoxRenderer* worldMapVisual;
+
+    sf::Image mapImage;
+
+    std::vector<TerrainTile*> world;
+
+
 };

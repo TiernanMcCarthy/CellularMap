@@ -3,10 +3,6 @@
 #include <iostream>
 bool BoxRenderer::ApplyImage(std::string path)
 {
-	if (renderTexture)
-	{
-		delete renderTexture;
-	}
 
 	renderTexture = new sf::Texture();
 	if (renderTexture->loadFromFile(path))
@@ -19,6 +15,23 @@ bool BoxRenderer::ApplyImage(std::string path)
     return false;
 
 }
+
+
+void BoxRenderer::ApplyImage(sf::Image& image)
+{
+    if (&image==nullptr)
+    {
+        std::cout<<"Failed to load image"<<std::endl;
+        return;
+    }
+
+    renderTexture= new sf::Texture(image);
+
+    box.setTexture(renderTexture);
+
+}
+
+
 void BoxRenderer::Render(sf::RenderWindow *target)
 {
 	if (target)

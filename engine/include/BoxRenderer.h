@@ -15,6 +15,8 @@ public:
 
 	bool ApplyImage(std::string path);
 
+    void ApplyImage(sf::Image& image);
+
 	void Render(sf::RenderWindow *target) override;
 
 	void UpdateVisualComponents() override;

@@ -13,7 +13,7 @@ class TerrainTile
 {
 public:
 
-    TerrainTile();
+    TerrainTile(bool isLand);
 
     void SetOwner(Settlement* newOwner);
 
@@ -22,6 +22,8 @@ public:
     Settlement& GetOwner();
 
 private:
+
+    bool isLand;
     sf::Color originalColour;
 
     Settlement* owner;

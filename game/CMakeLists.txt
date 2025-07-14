@@ -6,6 +6,8 @@ add_executable(CellularMap
         src/WorldMap.cpp
         include/TerrainTile.h
         src/TerrainTile.cpp
+        include/Settlement.h
+        src/Settlement.cpp
 )
 
 target_link_libraries(CellularMap PRIVATE Engine)
