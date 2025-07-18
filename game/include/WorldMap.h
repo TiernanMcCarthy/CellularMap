@@ -5,6 +5,7 @@
 
 #include "Behaviour.h"
 #include "BoxRenderer.h"
+#include "Settlement.h"
 
 class TerrainTile;
 
