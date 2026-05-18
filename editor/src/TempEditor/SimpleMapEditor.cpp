@@ -27,7 +27,7 @@ void SimpleMapEditor::LoadTerrainFromFile()
     {
         SceneObject* newObject= (new GameObject())->AddBehaviour<SceneObject>();
 
-        newObject->Init(entry.path());
+        newObject->Init(entry.path().string());
 
         //newObject->gameObject->transform.SetPosition(DISPLAYWIDTH*0.025f,200+iterator*128);
 

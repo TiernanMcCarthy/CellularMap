@@ -37,6 +37,8 @@ add_library(GameLib SHARED
         include/TestPlayer/TestCollectable.h
         include/TestPlayer/PlayerHUD.h
         src/TestPlayer/TestCollectable.cpp
+        include/TestPlayer/FollowCam.h
+        src/TestPlayer/FollowCam.cpp
 )
 
 # Link GameLib to Engine
